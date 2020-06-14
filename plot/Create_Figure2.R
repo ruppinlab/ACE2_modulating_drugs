@@ -9,7 +9,7 @@ library(lattice)
 ################################################
 # Panel 2A
 ################################################
-new_collection=readRDS('../data/Figure2A_collected.results.with.old.ones.RDS') #! please fix: file not there
+new_collection=readRDS('../data/Figure2A_collected.results.with.old.ones.RDS')
 new_collection_df=data.frame(padj=new_collection$padj, 
                              logfc=new_collection$log.fc,
                              drugName=new_collection$drug)
@@ -49,7 +49,7 @@ dev.off()
 ################################################
 # Panel 2C
 ################################################
-kidney_collection=readRDS('../data/Figure2C_kidney.collected.results.RDS') #! please fix: file not there
+kidney_collection=readRDS('../data/Figure2C_kidney.collected.results.RDS')
 kidney_collection_df=data.frame(padj=kidney_collection$padj, 
                                 logfc=kidney_collection$log.fc,
                                 drugName=kidney_collection$drug)

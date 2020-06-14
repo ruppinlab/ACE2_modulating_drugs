@@ -9,19 +9,19 @@ library(limma)
 
 
 # get best inferred genes (BING, this includes the landmark genes)
-load("data/geneinfo.RData")
+load("../data/geneinfo.RData")
 gns <- geneinfo[pr_is_bing==1, .(id=as.character(pr_gene_id), symbol=pr_gene_symbol)] # use only the sets of BING (landmark and best-inferred) genes
 
 # load previously generated population controls, i.e. median expression for each plate, for the two phases of l1000 data
-pop1 <- readRDS("data/population.ctrls.phase1.RDS")
-pop2 <- readRDS("data/population.ctrls.phase2.RDS")
+pop1 <- readRDS("../data/population.ctrls.phase1.RDS")
+pop2 <- readRDS("../data/population.ctrls.phase2.RDS")
 
 get.mat <- function(phase, insts) {
   # a function to read data from the l1000 gctx file
   if (phase==1) {
-    fn <- "data/GSE92742_Broad_LINCS_Level3_INF_mlr12k_n1319138x12328.gctx"
+    fn <- "../data/GSE92742_Broad_LINCS_Level3_INF_mlr12k_n1319138x12328.gctx"
   } else if (phase==2) {
-    fn <- "data/GSE70138_Broad_LINCS_Level3_INF_mlr12k_n345976x12328_2017-03-06.gctx"
+    fn <- "../data/GSE70138_Broad_LINCS_Level3_INF_mlr12k_n345976x12328_2017-03-06.gctx"
   }
   mat <- parse_gctx(fn, rid=gns$id, cid=insts)@mat
   rownames(mat) <- gns$symbol

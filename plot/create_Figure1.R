@@ -60,7 +60,7 @@ figC <- ggplot(de.res.app.carc, aes(y= -log(pval, 10), x=log.fc, color=point_col
 ###########################################################################
 # Fig-E
 ###########################################################################
-gsea.res_all_subset=read_xlsx('Figure_1E_topPathways_allClinicalApproveddrugsACE2.xlsx') #! please fix: file not there; maybe replace with a RData or RDS file
+gsea.res_all_subset=read_xlsx('../data/Figure_1E_topPathways_allClinicalApproveddrugsACE2.xlsx')
 colnames(gsea.res_all_subset)=colnames(gsea.res_all)
 gsea.res_all_subset$Enriched_in='negative modifier'
 gsea.res_all_subset$Enriched_in[gsea.res_all_subset$ES>0]='positive modifier'
