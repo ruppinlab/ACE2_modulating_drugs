@@ -9,7 +9,7 @@ library(lattice)
 ################################################
 # Panel 2A
 ################################################
-new_collection=readRDS('../data/Figure2A_collected.results.with.old.ones.RDS')
+new_collection=readRDS('../results/Figure2A_collected.results.with.old.ones.RDS')
 new_collection_df=data.frame(padj=new_collection$padj, 
                              logfc=new_collection$log.fc,
                              drugName=new_collection$drug)
@@ -32,7 +32,7 @@ Figure2A<-ggplot(new_collection_df, aes(y= -log(padj, 10), x=logfc, color=point_
 ################################################
 # Panel 2B
 ################################################
-df_completev2=readRDS('../data/figure2B_Data.RDS')
+df_completev2=readRDS('../results/figure2B_Data.RDS')
 tiff('Figure2C_nonCancer.tiff',width = 500, height=700)
 Figure2B<-ggplot(df_completev2[df_completev2$whether_cancer=='non-cancer',],
                  aes(y= ACE2, fill=Group,x=drug, label=pval))+
@@ -49,7 +49,7 @@ dev.off()
 ################################################
 # Panel 2C
 ################################################
-kidney_collection=readRDS('../data/Figure2C_kidney.collected.results.RDS')
+kidney_collection=readRDS('../results/Figure2C_kidney.collected.results.RDS')
 kidney_collection_df=data.frame(padj=kidney_collection$padj, 
                                 logfc=kidney_collection$log.fc,
                                 drugName=kidney_collection$drug)
@@ -76,7 +76,7 @@ Figure2C<-ggplot(kidney_collection_df, aes(y= -log(padj, 10), x=logfc, color=poi
 ################################################
 # Plot
 ################################################
-df_complete_kidney=readRDS('../data/figure2B_Data.RDS')
+df_complete_kidney=readRDS('../results/figure2B_Data.RDS')
 tiff('Figure2D_Kidney.tiff',width = 600, height=900)
 Figure2D<-ggplot(df_complete_kidney, aes(y= ACE2, fill=Group,x=drug, label=pval))+
   geom_boxplot()+

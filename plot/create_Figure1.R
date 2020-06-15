@@ -1,5 +1,5 @@
 # Figure 1 without Panel D
-load('../data/Figure1_new.results.RData')
+load('../results/Figure1_new.results.RData')
 require(ggplot2)
 require(ggrepel)
 require(readxl)
@@ -24,7 +24,7 @@ figA <- ggplot(de.res.hyp.carc, aes(y= -log(pval, 10), x=log.fc, color=point_col
 ###########################################################################
 # Fig-B
 ###########################################################################
-gsea.res.hyp.carc=get(load('../data/Figure_1B_gsea.res1.RData'))
+gsea.res.hyp.carc=get(load('../results/Figure_1B_gsea.res1.RData'))
 gsea.res.hyp.carc$Enriched_in='negative modifier'
 gsea.res.hyp.carc$Enriched_in[gsea.res.hyp.carc$ES>0]='positive modifier'
 gsea.res.hyp.carc=gsea.res.hyp.carc[order(gsea.res.hyp.carc$pval),]
@@ -60,7 +60,7 @@ figC <- ggplot(de.res.app.carc, aes(y= -log(pval, 10), x=log.fc, color=point_col
 ###########################################################################
 # Fig-E
 ###########################################################################
-gsea.res_all_subset=read_xlsx('../data/Figure_1E_topPathways_allClinicalApproveddrugsACE2.xlsx')
+gsea.res_all_subset=read_xlsx('../results/Figure_1E_topPathways_allClinicalApproveddrugsACE2.xlsx')
 colnames(gsea.res_all_subset)=colnames(gsea.res_all)
 gsea.res_all_subset$Enriched_in='negative modifier'
 gsea.res_all_subset$Enriched_in[gsea.res_all_subset$ES>0]='positive modifier'
@@ -75,7 +75,7 @@ figE<-ggplot(gsea.res_all_subset[1:10,], aes(x=reorder(pathway, -pval), y= -log(
 ###########################################################################
 # Fig-F
 ###########################################################################
-load('../data/gsea.res_Figure1F.RData')
+load('../results/gsea.res_Figure1F.RData')
 gsea.res=gsea.res[nchar(pathway)==3 & size>10][, padj:=p.adjust(pval, "BH")][pval<0.05][order(pval)]
 gsea.res=gsea.res[order(gsea.res$pval),]
 gsea.res$Enriched_in='negative modifier'
