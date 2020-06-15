@@ -1,5 +1,5 @@
 # ACE2_modulating_drugs
-Codes for reproducing the results of our study titled "Systematic cell line-based identification of drugs modifying ACE2
+Code for reproducing the results of our study titled "Systematic cell line-based identification of drugs modifying ACE2
 expression" by Sanju Sinha*, Kuoyuan Cheng*, Alejandro A. Schäffer, Kenneth Aldape, Eyal Schiff, and Eytan Ruppin†.
 
 
